@@ -1,0 +1,521 @@
+{
+    "title": "Xcode",
+    "rules": [
+        {
+            "description": "Map a double-tap of the left shift key in IntelliJ to Xcode's 'Command + Shift + O' for Open Quickly.",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "name": "left_shift_key",
+                            "type": "variable_if",
+                            "value": 1
+                        },
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.dt.Xcode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "left_shift"
+                    },
+                    "to": [
+                        {
+                            "key_code": "o",
+                            "modifiers": [
+                                "command",
+                                "shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "name": "left_shift_key",
+                            "type": "variable_if",
+                            "value": 0
+                        },
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.dt.Xcode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "left_shift",
+                        "modifiers": {
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "set_variable": {
+                                "name": "left_shift_key",
+                                "value": 1
+                            }
+                        },
+                        {
+                            "key_code": "left_shift"
+                        }
+                    ],
+                    "to_delayed_action": {
+                        "to_if_canceled": [
+                            {
+                                "set_variable": {
+                                    "name": "left_shift_key",
+                                    "value": 0
+                                }
+                            }
+                        ],
+                        "to_if_invoked": [
+                            {
+                                "set_variable": {
+                                    "name": "left_shift_key",
+                                    "value": 0
+                                }
+                            }
+                        ]
+                    },
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Map IntelliJ 'Command + O' to Xcode's 'Command + Shift + O' for Open Quickly.",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.dt.Xcode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "o",
+                        "modifiers": {
+                            "mandatory": [
+                                "command"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "o",
+                            "modifiers": [
+                                "command",
+                                "shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Map IntelliJ 'Command + Option + O' to Xcode's 'Command + Shift + O' for Open Quickly.",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.dt.Xcode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "o",
+                        "modifiers": {
+                            "mandatory": [
+                                "command",
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "o",
+                            "modifiers": [
+                                "command",
+                                "shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Map IntelliJ 'Option + Enter' to Xcode's 'Control + Enter' for Open Context Menu.",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.dt.Xcode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "return_or_enter",
+                        "modifiers": {
+                            "mandatory": [
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "return_or_enter",
+                            "modifiers": [
+                                "control"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Map IntelliJ 'Command + F7' to Xcode's 'Command + F' for Find.",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.dt.Xcode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "f7",
+                        "modifiers": {
+                            "mandatory": [
+                                "command"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f",
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Map IntelliJ 'Option + F7' to Xcode's 'Command + Shift + F' for Find in Workspace.",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.dt.Xcode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "f7",
+                        "modifiers": {
+                            "mandatory": [
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f",
+                            "modifiers": [
+                                "command",
+                                "shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Map IntelliJ 'Command + B' to Xcode's 'Command + Shift + Control + F' for Find Selected Symbol in Workspace.",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.dt.Xcode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "b",
+                        "modifiers": {
+                            "mandatory": [
+                                "command"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f",
+                            "modifiers": [
+                                "command",
+                                "shift",
+                                "control"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Map IntelliJ 'Command + K' to Xcode's 'Option + Command + C' for Commit.",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.dt.Xcode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "k",
+                        "modifiers": {
+                            "mandatory": [
+                                "command"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "c",
+                            "modifiers": [
+                                "option",
+                                "command"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Map IntelliJ 'Command + Shift + F9' to Xcode's 'Command + B' for Build.",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.dt.Xcode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "f9",
+                        "modifiers": {
+                            "mandatory": [
+                                "command",
+                                "shift"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "b",
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Map IntelliJ 'Command + F9' to Xcode's 'Command + B' for Build.",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.dt.Xcode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "f9",
+                        "modifiers": {
+                            "mandatory": [
+                                "command"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "b",
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Map IntelliJ 'Control + R' to Xcode's 'Shift + Command + R' for Build For Running.",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.dt.Xcode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "r",
+                        "modifiers": {
+                            "mandatory": [
+                                "control"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "r",
+                            "modifiers": [
+                                "shift",
+                                "command"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Map IntelliJ 'Option + Space' to Xcode's 'Control + Command + ?' for Quick Help.",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.dt.Xcode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "spacebar",
+                        "modifiers": {
+                            "mandatory": [
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "slash",
+                            "modifiers": [
+                                "control",
+                                "command",
+                                "shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Map IntelliJ 'Command + P' to Xcode's 'Control + Command + ?' for Quick Help.",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.dt.Xcode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "p",
+                        "modifiers": {
+                            "mandatory": [
+                                "command"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "slash",
+                            "modifiers": [
+                                "control",
+                                "command",
+                                "shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        },
+        {
+            "description": "Map IntelliJ 'Option + F1' to Xcode's 'Command + Shift + J' for Reveal in Project Navigator.",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "bundle_identifiers": [
+                                "^com\\.apple\\.dt.Xcode$"
+                            ],
+                            "type": "frontmost_application_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "f1",
+                        "modifiers": {
+                            "mandatory": [
+                                "option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "j",
+                            "modifiers": [
+                                "command",
+                                "shift"
+                            ]
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}
